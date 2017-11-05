@@ -1,0 +1,63 @@
+%\section*{Collaborators}
+%List all your collaborators.
+
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{color}
+\usepackage{lipsum} % for filler text
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{graphicx}
+
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\fancyhead{} % clear all header fields
+\renewcommand{\headrulewidth}{0pt} % no line in header area
+\fancyfoot{} % clear all footer fields
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\fancyfoot[LE,RO]{\thepage}           % page number in "outer" position of footer line
+\fancyfoot[RE,LO]{Aashish Dhakal} %your name in footer line
+
+\begin{document}
+%\lipsum[1-20]
+\title{CS 572(Assignment 7)} %replace X with the appropriate number
+\author{Aashish Dhakal\\ %replace with your name
+aashish@iastate.edu\\%replace with username
+ }      %if necessary, replace with your course title
+\date{}
+
+
+\maketitle
+\section*{}
+
+\textbf{Problem 13.11}\\
+Medical Tests\\
+Let's introduce three events for a certain person:
+\begin{itemize}
+  \item $A$ - indicates whether test A is positive
+  \item $B$ - indicates whether test B is positive
+  \item $V$ - indicates if the person carries virus or not
+\end{itemize}
+ Now we can write the problems in the task as follows:
+\begin{itemize}
+  \item $P(A|V) = 0.9$
+  \item $P(A|\neg V) = 0.1$
+  \item $P(B|V) = 0.9$
+  \item $P(B|\neg V) = 0.05$
+  \item $P(V) = 0.01$
+\end{itemize}
+Our goal here is to compare $P(A|V)$ and $P(B|V)$. \\
+Let's calculate both of them using Bayes rule:
+\begin{itemize}
+  \item \[ P(A|V)=\frac{P(A|V)P(V)}{P(A|V)P(V)P(A|\neg V)P(\neg V)}=\frac{0.95*0.01}{0.95*0.01+0.1*0.99} \approx 0.088 \]
+  \item \[ P(B|V)=\frac{P(B|V)P(V)}{P(B|V)P(V)P(B|\neg V)P(\neg V)}=\frac{0.9*0.01}{0.9*0.01+0.05*0.99} \approx 0.15 \]  \item
+\end{itemize}
+
+Test B is more reliable than Test A even though both have pretty low accuracy.
+
+\end{document}
+}

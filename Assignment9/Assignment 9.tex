@@ -1,0 +1,85 @@
+%\section*{Collaborators}
+%List all your collaborators.
+
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{color}
+\usepackage{lipsum} % for filler text
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{tabu}
+
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\fancyhead{} % clear all header fields
+\renewcommand{\headrulewidth}{0pt} % no line in header area
+\fancyfoot{} % clear all footer fields
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\fancyfoot[LE,RO]{\thepage}           % page number in "outer" position of footer line
+\fancyfoot[RE,LO]{Aashish Dhakal} %your name in footer line
+
+\begin{document}
+%\lipsum[1-20]
+\title{CS 572(Assignment 9)} %replace X with the appropriate number
+\author{Aashish Dhakal\\ %replace with your name
+aashish@iastate.edu\\%replace with username
+ }      %if necessary, replace with your course title
+\date{}
+
+
+\maketitle
+\section*{}
+
+\textbf{Problem 1:}
+Given: \\
+$P(w_1) = 1/3$ ----- (1)\\
+$P(w_2) = 2/3$ ----- (2)\\
+$p(x|w_1) \sim N(\theta_1,1)$ ----- (3)\\
+$p(x|w_2) \sim N(\theta_2,1)$ ----- (4)\\
+$N(\mu, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{{-\frac{1}{2}}(\frac{x-\mu}{\sigma})^2}$ ----- (5)\\ \\
+Now we have, $D_1= \{ 1, 2, 3\}$ and $D_2 = \{ 3, 7\}$ \\
+From (3) and (5), we have\\
+$L(x|\theta_1) = \frac{1}{\sqrt{2\pi}}e^{{-\frac{1}{2}}(x-\theta_1)^2}$ ------ (6)\\ \\
+Now,
+$L(\theta_1) = P(D_1|\theta_1) = P (x = 1 | \theta_1) * P (x = 2 | \theta_1) * P (x = 3 | \theta_1)$\\
+Taking log on both sides:\\
+$L \; L(\theta_1) = ln\; P (x = 1 |\; \theta_1) * ln\; P (x = 2 |\; \theta_1) * ln\; P (x = 3 |\; \theta_1)$\\ \\
+$L \; L(\theta_1) = log \frac{1}{\sqrt{2\pi}}e^{{-\frac{1}{2}}(1-\theta_1)^2} * log \frac{1}{\sqrt{2\pi}}e^{{-\frac{1}{2}}(2-\theta_1)^2} *
+log \frac{1}{\sqrt{2\pi}}e^{{-\frac{1}{2}}(3-\theta_1)^2}$ ----- (7)\\ \\
+Taking partial derivative of (7) and set it equals to 0.\\
+$= (1-\theta_1)\; +\; (2-\theta_1)\; +\; (1-\theta_1)\;$ \\
+$\Rightarrow 6 \; = 3\theta_1$\\
+$\theta_1 \; = \; 2$ \\ \\
+Similarly, for $\theta_2$:\\
+$=\; (3-\theta_2)\; +\; (7-\theta_2)\;$ \\
+$\Rightarrow 10 \; = 2\theta_2$\\
+$\theta_2 \; = \; 5$ \\ \\
+Therefore, we rewrite: $p(x|w_1) \sim N(2,1); \; p(x|w_2) \sim N(5,1). $ \\ \\
+\textbf{Problem 2}\\
+The Bayes decision rule for a data point $x$ assigns class (label) $w_1$ to it, if $p(w_1|x) > p(w_2|x)$,
+and assigns label $w_2$ otherwise.
+\begin{center}
+$p(w_1|x) = \frac{p(x|w_1)p(w_1)}{C}; p(w_2|x)= \frac{p(x|w_2)p(w_2)}{C}$,
+\end{center}
+Where $C = p(x)$, which can be treated as a normalization constant, and is not relevant for the decision.\\
+Let's find a condition at which $p(w_1|x) > p(w_2|x)$:\\
+\begin{center}
+  $\frac{p(x|w_1)}{3}> \frac {p(x|w_2)2}{3}$\\
+  $\frac{1}{\sqrt{2\pi}}e^{-\frac{1(x-2)^2}{2}} > 2 \frac{1}{\sqrt{2\pi}}e^{-\frac{1(x-5)^2}{2}}$\\
+  $e^{-\frac{1(x-2)^2}{2}} > e^{-\frac{1(x-5)^2}{2}}$\\
+\end{center}
+Lets' take a log of each part of the inequality:
+\begin{center}
+  $(-\frac{1}{2})(x^2-4x+4) > log(2) + (-\frac{1}{2})(x^2-10x+25)$\\
+  $(-\frac{1}{2})(6x-21) > log(2)$\\
+  $x < \frac{-2log(2) + 21}{6} \approx 3.27$
+\end{center}
+Therefore, for $x\; <\; \sim \; 3.27$, Bayes decision rule assigns label $w_1$ to $x$, $w_2$ otherwise.
+\end{document}
+}

@@ -1,0 +1,61 @@
+%\section*{Collaborators}
+%List all your collaborators.
+
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{color}
+\usepackage{lipsum} % for filler text
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{enumitem}
+
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\fancyhead{} % clear all header fields
+\renewcommand{\headrulewidth}{0pt} % no line in header area
+\fancyfoot{} % clear all footer fields
+\fancyfoot[LE,RO]{\thepage}           % page number in "outer" position of footer line
+\fancyfoot[RE,LO]{Aashish Dhakal} %your name in footer line
+
+\begin{document}
+%\lipsum[1-20]
+\title{CS 572(Assignment 1)} %replace X with the appropriate number
+\author{Aashish Dhakal\\ %replace with your name
+aashish@iastate.edu\\%replace with username
+ }      %if necessary, replace with your course title
+\date{}
+
+
+\maketitle
+\section*{}
+
+\textbf{Problem 2.3}
+\begin{enumerate}[label=(\alph*)]
+  \item False. The vacuum cleaning agent doesn't observe the state adjacent to it but is perfectly rational.
+  \item True. If we touch fire than our reflex will be to pull our hand away from it.
+  \item True. If all the actions and inactions produces the same result.
+  \item False. Agent function has percept history as input while for Agent Program the percept history is current precept.
+  \item False. A program when run for a longer period of time will eventually be out of memory, so there is no such gurantee that every agent function is
+  implementable by some program/machine combination.
+  \item True. If all the actions and inactions produces the same result.
+  \item True. If both of the environments will be similar in any kind of way.
+  \item False. If the agent doesn't have any way to perceive the environment and couldn't achieve it's goal then it wouldn't be rational.
+  \item False. One of the player with better luck will win it.
+\end{enumerate}
+
+\textbf{Problem 2.6}
+\begin{enumerate}[label=(\alph*)]
+  \item Yes, there can be more than one agent program that implements a given agent function. For example,
+  \item Yes, there are agent functions that cannot be implemented by any agent program. For eg: if there was an agent function to count the square root of a
+  negative number.
+  \item Yes. When given a fixed machine architecture the agent program will implement exactly one agent function, because if we want to implement multiple
+  agent function we are require to select multiple actions i.e. multiple percepts. 
+  \item There are $2^n$ possible agent programs.
+  \item No, speeding up the machine wont change the agent function because the environment is still a static one but in some way it could make the machine
+  better.
+\end{enumerate}
+\end{document}
+}

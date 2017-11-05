@@ -1,0 +1,90 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 ComicSansMS;\f2\fnil\fcharset0 Monaco;
+}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;\csgray\c100000;}
+\margl1440\margr1440\vieww18420\viewh12940\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf0 Lab Report:
+\fs24 \
+\
+Q 2)a) 
+\f1 While creating the heuristic functions, the given propensities were taken into account(as given in the question itself):\
+	i) how many times the word \'93QUERY\'94 appeared on the page,\
+         ii) how many time the \'93hypertext\'94 associated with hyperlink appeared, and\
+        iii) how consecutive and in numerical order, the QUERY words appeared in hyperlink\
+\
+      The heuristic used in the program provides weightage 1, 2, 3, res. The arc with more heuristic value will be chosen over arc with smaller heuristic value.\
+\
+      No, my heuristic is not admissible, because we are not checking the whole page content but only checking the number of repetitions of word \'93QUERY\'94.\
+\
+c) The heuristic I gave for beam search performed well than the breadth first and depth first search. 
+\f0 \
+\
+\
+Experimental Results:\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs22 \cf0 intranet#  breadth  depth   Best    Beam\
+------------------------------------------ \
+    1       91/4    58/15   16/5    21/5\
+    5       88/8    42/10   23/13   23/13\
+    7       56/6    12/9    18/6    18/6\
+\
+BFS\
+Visited 91 nodes, starting @ /Users/aashishdhakal/Desktop/CS 572/Assignment/Lab 1/intranets/intranet1/page1.html, using: breadth search, \
+Length of traversed path is 4\
+Path list is: page1.html -> page18.html -> page29.html -> page99.html -> page50.html\
+\
+Visited 88 nodes, starting @ /Users/aashishdhakal/Desktop/CS 572/Assignment/Lab 1/intranets/intranet5/page1.html, using: breadth search, \
+Length of traversed path is 8\
+Path list is: page1.html -> page40.html -> page99.html -> page89.html -> page87.html -> page96.html -> page95.html -> page72.html -> page62.html\
+\
+Visited 56 nodes, starting @ /Users/aashishdhakal/Desktop/CS 572/Assignment/Lab 1/intranets/intranet7/page1.html, using: breadth search, \
+Length of traversed path is 6\
+Path list is: page1.html -> page48.html -> page71.html -> page57.html -> page62.html -> page61.html -> page86.html\
+\
+DFS\
+Visited 58 nodes, starting @ /Users/aashishdhakal/Desktop/CS 572/Assignment/Lab 1/intranets/intranet1/page1.html, using: depth search, \
+Length of traversed path is 15\
+Path list is: page1.html -> page23.html -> page60.html -> page39.html -> page78.html -> page25.html -> page42.html -> page84.html -> page30.html -> page68.html -> page93.html -> page87.html -> page79.html -> page2.html -> page83.html -> page50.html\
+\
+Visited 42 nodes, starting @ /Users/aashishdhakal/Desktop/CS 572/Assignment/Lab 1/intranets/intranet5/page1.html, using: depth search, \
+Length of traversed path is 10\
+Path list is: page1.html -> page40.html -> page99.html -> page5.html -> page97.html -> page68.html -> page48.html -> page7.html -> page95.html -> page72.html -> page62.html\
+\
+Visited 12 nodes, starting @ /Users/aashishdhakal/Desktop/CS 572/Assignment/Lab 1/intranets/intranet7/page1.html, using: depth search, \
+Length of traversed path is 9\
+Path list is: page1.html -> page48.html -> page71.html -> page57.html -> page90.html -> page39.html -> page60.html -> page11.html -> page78.html -> page86.html\
+\
+BEAM\
+Visited 21 nodes, starting @ /Users/aashishdhakal/Desktop/CS 572/Assignment/Lab 1/intranets/intranet1/page1.html, using: beam search, \
+Length of traversed path is 5\
+Path list is: page1.html -> page14.html -> page95.html -> page56.html -> page99.html -> page50.html\
+\
+Visited 23 nodes, starting @ /Users/aashishdhakal/Desktop/CS 572/Assignment/Lab 1/intranets/intranet5/page1.html, using: beam search, \
+Length of traversed path is 13\
+Path list is: page1.html -> page70.html -> page93.html -> page8.html -> page83.html -> page40.html -> page99.html -> page88.html -> page19.html -> page42.html -> page35.html -> page95.html -> page72.html -> page62.html\
+\
+Visited 18 nodes, starting @ /Users/aashishdhakal/Desktop/CS 572/Assignment/Lab 1/intranets/intranet7/page1.html, using: beam search, \
+Length of traversed path is 6\
+Path list is: page1.html -> page48.html -> page71.html -> page57.html -> page62.html -> page61.html -> page86.html\
+\
+BEST\
+Visited 16 nodes, starting @ /Users/aashishdhakal/Desktop/CS 572/Assignment/Lab 1/intranets/intranet1/page1.html, using: best search, \
+Length of traversed path is 5\
+Path list is: page1.html -> page14.html -> page95.html -> page56.html -> page99.html -> page50.html\
+\
+Visited 23 nodes, starting @ /Users/aashishdhakal/Desktop/CS 572/Assignment/Lab 1/intranets/intranet5/page1.html, using: best search, \
+Length of traversed path is 13\
+Path list is: page1.html -> page70.html -> page93.html -> page8.html -> page83.html -> page40.html -> page99.html -> page88.html -> page19.html -> page42.html -> page35.html -> page95.html -> page72.html -> page62.html\
+\
+Visited 18 nodes, starting @ /Users/aashishdhakal/Desktop/CS 572/Assignment/Lab 1/intranets/intranet7/page1.html, using: best search, \
+Length of traversed path is 6\
+Path list is: page1.html -> page48.html -> page71.html -> page57.html -> page62.html -> page61.html -> page86.html\
+\
+\
+\
+}

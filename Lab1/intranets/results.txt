@@ -1,0 +1,25 @@
+intranet#   breadth  depth   sortByH
+------------------------------------
+    1        91/4    58/15    19/7 // there are 100 pages
+    2        73/4    51/6      7/4 // in these intranets
+    3        75/6    62/6     10/6
+    4        58/4    63/10    16/4
+    5        88/8    42/10    29/9
+    6        87/-    87/-     87/-  // no soln exists
+    7        56/6    12/9     27/8 
+
+Key: <number of nodes visited> / <solution-path length>
+
+The solution-path length counts the NUMBER OF ARCS
+in the solution (so this number of NODES involved
+is 1 greater).
+
+Note: the results you get may differ depending
+on how you insert 'equivalent' children into OPEN
+in breadth & depth, and of course even more so in sortbyH,
+depending on your heuristic function.
+
+Also, the results in the "sortbyH" column
+may change if I play around some more with
+my solution.
+

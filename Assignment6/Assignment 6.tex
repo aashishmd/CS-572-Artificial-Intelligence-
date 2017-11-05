@@ -1,0 +1,113 @@
+%\section*{Collaborators}
+%List all your collaborators.
+
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{color}
+\usepackage{lipsum} % for filler text
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{graphicx}
+
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\fancyhead{} % clear all header fields
+\renewcommand{\headrulewidth}{0pt} % no line in header area
+\fancyfoot{} % clear all footer fields
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\fancyfoot[LE,RO]{\thepage}           % page number in "outer" position of footer line
+\fancyfoot[RE,LO]{Aashish Dhakal} %your name in footer line
+
+\begin{document}
+%\lipsum[1-20]
+\title{CS 572(Assignment 6)} %replace X with the appropriate number
+\author{Aashish Dhakal\\ %replace with your name
+aashish@iastate.edu\\%replace with username
+ }      %if necessary, replace with your course title
+\date{}
+
+
+\maketitle
+\section*{}
+
+\textbf{Problem 8.24}
+\\ \textbf{Vocabulary}:\\
+$Student(x), Person(x), Man(x), Barber(x), Expensive(x), Agent(x), Insured(x), Smart(x), Politician(x)$\\
+$F, G$: French and German Courses\\
+$x > y$ : $x$ is greater than $y$\\
+$Take(x, c, s)$ : student $x$ takes course $c$ in sem $s$\\
+$Pass(x, c, s)$ : student $x$ passes course $c$ in sem $s$\\
+$Score(x, c, s)$ : student $x$ scores $c$ in sem $s$\\
+$Sub(c, f)$ : subject of course $c$ is field $f$\\
+$Buys(x, y, z)$ : $x$ buys $y$ from $z$\\
+$Sells(x, y, z)$ : $x$ sells $y$ to $z$\\
+$Shaves(x, y)$ : $x$ shaves $y$ \\
+$Parent(x, y)$ : $x$ is a parent of $y$ \\
+$Citizen(x, c, r)$ : $x$ is a citizen of $c$ for reason $r$\\
+$Resident(x, c)$ : $x$ is a resident of country $c$\\
+$Birthplace(x, c)$ : person $x$ was born in country $c$\\
+$Fool(x, y, t)$ : person $x$ fools person $y$ at time $t$\\  \\
+\textbf{Answers}
+\begin{enumerate}[label=(\alph*)]
+\item $\exists Student(x) \wedge Takes(x, F, Spring2001).$
+\item $\forall x, \; s \;Student(x) \wedge Takes(x, F, s) \Rightarrow Passes(x, F, s)$
+\item $\exists Student(x) \wedge Takes(x, G, Spring2001) \wedge \forall y \; y \neq x \Rightarrow \neg Takes(y, G, Spring2001)$
+\item $\forall s\; \exists x\; \forall y\;  Score(x, G, s) > Score(x, F, s)$
+\item $\forall x \; Person(x) \; \wedge (\exists y, \; z \; Policy(y) \; \wedge \; Buys(x, y, z)) \Rightarrow Smart(x)$
+\item $\forall x \; y \; z \; Person(x) \wedge Policy(y) \wedge Expensive(y) \Rightarrow \neg Buys(x, y, z)$
+\item $\exists x \; Agent(x) \wedge \forall y, \; z \; Policy(y) \wedge Sells (x, y, z) \Rightarrow (Person(z) \wedge \neg Insured(z))$
+\item $\exists x \; \forall y \; Barber(x) \wedge Man(y) \wedge \neg Shave(y, y) \Rightarrow Shaves(x, y)$
+\item $\forall x \; Person(x) \; \wedge \; Born(x, UK) \; \wedge \; (\forall y \; Parent(y, x) \Rightarrow (\exists r \; Citizen(y, UK, r)) \; \vee
+\; Resident(y, UK))) \Rightarrow Citizen(x, UK, Birth)$
+\item $\forall x \; Person(x) \; \wedge \; \neg Born(x, UK) \; \wedge \; (\exists y \; Parent(y, x) \; \wedge \; Citizen(y, UK, Birth))
+\Rightarrow Citizen(x, UK, Descent)$
+\item $\forall \; x \; Politician(x) \; \Rightarrow \; (\exists \; y \; \forall \; t \; Person(y) \wedge \; Fools(x, y, t)) \;
+\wedge \; (\exists \; t \; \forall \; y \; Person(y) \wedge Fools(x, y, t)) \; \wedge \;
+\neg(\forall \; t \; \forall \; y \; Person(y) \wedge \; Fools(x, y, t)) $
+\end{enumerate}
+\textbf{Problem 9.4}
+\begin{enumerate}
+   \item Progressive Unification:\\
+         $P(A, B, B), \; P(x,y,z) : \{ x/A \},\\
+         P(A, B, B), \; P(A, y, z) : \{ x/A, \; y/B \} \\
+         P(A, B, B), \; P(A, B, z) : \{ x/A, \; y/B, \; z/B \}$
+   \item Progressive Unification:\\
+         $Q(y, \; G(A, B)), \; Q(G(x, x), y): \; \{ y/G(x, x) \}\\
+         Q(G(x, x), \; G(A, B)), \; Q(G(x, x), G(x, x)) : \{ y/G(x, x) \} \\
+         Q(G(x, x), \; G(A, B)), \; Q(G(x, x), G(x, x)) : \{ y/G(x, x), x/A \}\\
+         Q(G(A, A), \; G(A, B)), \; Q(G(A, A), G(A, A)) : \{ y/G(x, x), x/A \}$\\
+         Unification of $A$ and $B$ cannot be done.
+   \item Progressive Unification:\\
+         $Older(Father(y), y), \; Older(Father(x), \; John) : \{ \} \\
+         Older(Father(y), y), \; Older(Father(x), John) : \{ x/y \} \\
+         Older(Father(x), x), \; Older(Father(x), \; John) : \{ y/x, \; x/John \} = \{ y/John, x/John \} $
+   \item Progressive Unification:\\
+         $Knows(Father(y), \; y), Knows(x, x) : \{ x/Father(y) \} \\
+         Knows(Father(y), y), Knows(Father(y), Father(y)) : \{ x/Father(y) \}$\\
+         Cannot unify variable y with Father(y).\\
+\end{enumerate}
+\textbf{Problem 9.20}\\$S(p, q)$ represents p shaves q
+\begin{enumerate}[label=(\alph*)]
+  \item $\exists \; p \; \forall q \; S(p, q) \Leftrightarrow \neg S(p, q)$
+  \item We will have two clauses because we have a bidirectional implication in $a$\\
+        1: $\exists \; p \; \forall q \; S(p, q) \Rightarrow \neg S(p, q)$\\
+         $\rightarrow \; \neg S(C,q) \; \vee \; \neg S(q, q)$\\
+        2: $\neg S(p, q) \Rightarrow \; \exists \; p \; \forall q \; S(p, q)\\
+        \rightarrow \; \; S(C, q) \; \vee \; S(p, q)$
+  \item Applying factoring to 1, using the substitution $q/C$\\
+        3: $\neg S(C, C)$.\\
+        Applying factoring to 2, using substituion $q/C$:\\
+        4: $S(C, C)$\\
+        And finally when we resolve 3 & 4, we get a null clause.
+\end{enumerate}
+
+
+
+
+
+\end{document}
+}

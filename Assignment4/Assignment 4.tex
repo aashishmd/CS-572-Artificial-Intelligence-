@@ -1,0 +1,77 @@
+%\section*{Collaborators}
+%List all your collaborators.
+
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{color}
+\usepackage{lipsum} % for filler text
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{enumitem}
+
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\fancyhead{} % clear all header fields
+\renewcommand{\headrulewidth}{0pt} % no line in header area
+\fancyfoot{} % clear all footer fields
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\fancyfoot[LE,RO]{\thepage}           % page number in "outer" position of footer line
+\fancyfoot[RE,LO]{Aashish Dhakal} %your name in footer line
+
+\begin{document}
+%\lipsum[1-20]
+\title{CS 572(Assignment 4)} %replace X with the appropriate number
+\author{Aashish Dhakal\\ %replace with your name
+aashish@iastate.edu\\%replace with username
+ }      %if necessary, replace with your course title
+\date{}
+
+
+\maketitle
+\section*{}
+
+\textbf{Problem 6.4}
+\begin{enumerate}[label=(\alph*)]
+  \item For rectilinear floor planning,
+  assume the large rectangle has length $L$ and breadth $B$. Each rectangle $R_i$ is parameterized by
+  four variables, $x, y, l, b$, which defines its co-ordinates position, length and breadth. All smaller rectangles have
+  the set of constraints.\\ \\
+  \tab \tab \tab \tab $R_{i,x} \geq 0$,\\ \tab \tab \tab \tab $R_{i,x} + R_{i,l} \leq L$ \\
+  \tab \tab \tab \tab $R_{i,y} \geq 0$, \\ \tab \tab \tab \tab $R_{i,y} + R_{i,b} \leq B$ \\ \\
+  which makes sure that the smaller rectangles lie within the larger rectangles. In addition to this, we can add constraints
+  between two rectangles $i$ and $j$, where $ i \neq j$ \\ \\
+  \tab \tab \tab $R_{i,x} + R_{i,l} \leq R_{j,x}$  or  $R_{i,x} \geq R_{j,x} + R_{j,l}$ \\
+  \tab \tab \tab $R_{i,y} + R_{i,b} \leq R_{j,y}$  or  $R_{i,y} \geq R_{j,y} + R_{j,b}$ \\
+  \\
+  The domain of each variable is set of 4-tuples, provided above, that are the right size for the corresponding smaller
+  rectangle so that it will fit inside the larger rectangle. \\
+
+  \item Class Scheduling Problem:\\
+  Here the provided variables consists of Professors(P), Classrooms(C), Subjects (S) and Time Slots(S).\\
+  Let's use $P_{ct}$ and $S_{ct}$ to represent a Professor in classroom $c$ on time $t$ and a subject
+  being taught in classroom $c$ on time $t$ respectively.\\
+  Now we apply constraints in such a way that now two Professors have classes in the same classroom at the same time,
+  that means we need to have all three attributes unique for a particular time slot, i.e. Professor, Classroom and Subject.\\ \\
+  The domain of each $P_{ct}$ is the set of professors and domain of each $S_{ct}$ is the set of subjects. Denote
+  the set of subjects that professor $P$ can teach by $D(t)$\\ \\
+  \tab \tab \tab \tab $P_{ct} \neq P_{dt}$, \tab where $d \neq c$\\ \\
+  which implies that no professors are assigned to two different classes at the same time. Also, there is a constraint
+  between every $P_{ct}$ and $S_{ct}$, denoted by $C_{ij}(t,s)$ such that it ensures that if a Professor $P$ is being assigned
+  to $P_{ij}$, then $S_{ct}$ is assigned a value from $D(t)$.\\
+\end{enumerate}
+\textbf{Problem 6.7}
+\begin{enumerate}[label=(\alph*)]
+    \item Let's introduce variables, i.e. Color, Nationality, Candy, Drink and Pet, to represent
+    it as a CSP. It will result in having 25 variables. We will represent the house as numbers and keep it constant
+    as rows. With this representation we will be able to represent all constraints in a simple way and each
+    of the 25 variables will be able to take values from appropiate domains.\\
+    Besides that we can also create another representation such that we have five variable for each house, with
+    one having domain as color, one with nationality, one with candy, one with drink and one with pet. This representation
+    will not be as simple as the previous one.
+\end{enumerate}
+
+\end{document}
+}

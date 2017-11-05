@@ -1,0 +1,61 @@
+%\section*{Collaborators}
+%List all your collaborators.
+
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{color}
+\usepackage{lipsum} % for filler text
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{enumitem}
+
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\fancyhead{} % clear all header fields
+\renewcommand{\headrulewidth}{0pt} % no line in header area
+\fancyfoot{} % clear all footer fields
+\fancyfoot[LE,RO]{\thepage}           % page number in "outer" position of footer line
+\fancyfoot[RE,LO]{Aashish Dhakal} %your name in footer line
+
+\begin{document}
+%\lipsum[1-20]
+\title{CS 572(Assignment 1)} %replace X with the appropriate number
+\author{Aashish Dhakal\\ %replace with your name
+aashish@iastate.edu\\%replace with username
+ }      %if necessary, replace with your course title
+\date{}
+
+
+\maketitle
+\section*{}
+
+\textbf{Problem 3.26}
+\begin{enumerate}[label=(\alph*)]
+  \item The branching factor indicates the number of neighbors in each state so the branching factor $b$ in state space is 4.
+  \item There are $4k$ distict states at depth $k$ (for $k>0$).
+  \item The maximum number of nodes expanded by the breadth-first tree search is: $((4^{x+y+1}-1)/3)-1$.\\
+  At each level: We have $4(x+y)$ distinct nodes, and each node will have 4 extra nodes that can be expanded. \\
+  nodes(d) = $1 + 4 + .....+ 4^d$. So, while expanding from origin till $(x,y)$ we will have gone till $(x+y+1)$ as we have to reach till max
+  and then subtract 1 from it.
+  \item There are quadriatically many states within the square for up to depth $(x,y)$, so the maximum number of nodes expanded by the breadth-first
+   search is: $2(x+y)(x+y+1)$ where $(x,y)$ is the destination vertex. \\
+   It expands 4 nodes on the first search and it expands extra 4 distinct nodes on every depth from part: b), we would have expanded all the
+   nodes by $(x+y+1)$ levels.\\
+   $(1+4+8+.....)$ = $(1+4(1+2+...+d)$ where $d = (x+y)$, and solving it we get\\
+   $= 2(x+y)(x+y+1)$
+  \item Yes. This is the Manhattan district metric and equal to the path length.\\
+  For eg: Let $X(0, 0)$ be a state and $G(3, 3)$ be the goals state.\\
+  Then, by applying the formula: h = $\left|u-x\left| + \left|v-y\left| = \left|3-0\left| + \left|3-0\left| = 6 $
+  \item $(x+y)$ nodes are expanded by $A^*$ graph search using Graph search because the heuristic is perfect.\\
+  Example can be the same as problem e.
+  \item True. Removing links may induce detours, and increase the length of the shortest path and thatn would result $h$ to be less than or equal
+  to the path length so we can say that $h$ remains admissable.
+  \item False. Addition of some links between non-adjacent states might result in decrement of the shortest path and that may cause
+  $h$ to be greater than the path length and $h$ doesn't remain admissable anymore.
+\end{enumerate}
+
+\end{document}
+}
