@@ -15,30 +15,10 @@ import java.util.StringTokenizer;
 import java.util.Vector;
 
 
-// You should call this code as follows:
-//
-//   java WebSearch directoryName searchStrategyName
-//   (or jview, in J++)
-//
-//   where <directoryName> is the name of corresponding intranet
-//   and <searchStrategyName> is one of {breadth, depth, best, beam}.
-
-// The PARTIAL code below contains code for fetching and parsing
-// the simple web pages we're using, as well as the fragments of
-// a solution.  BE SURE TO READ ALL THE COMMENTS.
-
-// Feel free to alter or discard whatever code you wish;
-// the only requirement is that your main class be called WebSearch
-// and that it accept the two arguments described above
-// (if you wish you can add additional OPTIONAL arguments, but they
-// should default to the values "hardwired" in below).
-
 public class WebSearch 
 {
 	static String directoryName;
 	static String searchStrategyName;
-	//static LinkedList<SearchNode> OPEN; // Feel free to choose your own data structures for searching,
-	//static HashSet<String> OPEN_ELEMENTS;
 	
 	//List to store nodes that have been closed & open.
 	static HashSet<String> CLOSED;
@@ -84,13 +64,6 @@ public class WebSearch
 				System.out.println("  BREADTH DEPTH BEST BEAM");
 			}
 		}
-
-		/*Iterator closedItr = CLOSED.iterator();
-		System.out.println("\nClosed List. Size : " + CLOSED.size());
-		while(closedItr.hasNext()){
-			String linkName = closedItr.next().toString();
-			System.out.println(linkName);
-		}*/
 		
 		Utilities.waitHere("Press ENTER to exit.");
 	}
